@@ -1,0 +1,123 @@
+<div class="lg:max-w-[90%] px-5 py-10 mx-auto">
+  <div class="bg-white rounded-xl shadow-lg p-6 sm:p-8">
+    <!-- Header -->
+    <div class="mb-6">
+      <div class="flex justify-between items-center mb-2">
+        <span class="text-sm font-medium text-muted-foreground">
+          Question {{ currentIndex + 1 }}/{{ quiz.questions.length }}
+        </span>
+        <div class="flex items-center gap-2">
+          <svg
+            class="h-6 w-6 text-[var(--primary-color)]"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+            ></path>
+          </svg>
+          <span class="text-lg font-semibold text-[var(--text-primary)]">
+            {{ formattedTime }}
+          </span>
+        </div>
+      </div>
+      <div class="w-full bg-secondary rounded-full h-2.5">
+        <div
+          class="bg-primary h-2.5 rounded-full"
+          [style.width.%]="progress"
+        ></div>
+      </div>
+    </div>
+
+    <!-- Question -->
+    <div class="transition-opacity duration-300">
+      <h2 class="text-2xl font-semibold text-foreground mb-4">
+        <span class="font-bold">Q{{ currentIndex + 1 }}.</span>
+        {{ currentQuestion.text }}
+      </h2>
+
+      <!-- Options -->
+      <div class="space-y-4 mb-8" *ngIf="currentQuestion.type === 'mcq'">
+        <label
+          *ngFor="let option of currentQuestion.options; let i = index"
+          class="flex items-center gap-4 rounded-lg border-2 border-border p-4 cursor-pointer transition-all duration-200"
+          (click)="selectAnswer(option.id)"
+          [ngClass]="{
+            'border-primary bg-primary-soft':
+              selectedAnswers[currentQuestion.id] === option.id
+          }"
+          (click)="selectAnswer(option.id)"
+        >
+          <span
+            class="flex items-center justify-center h-8 w-8 rounded-md transition-colors"
+            [ngClass]="{
+              'bg-primary text-primary-foreground':
+                selectedAnswers[currentQuestion.id] === option.id,
+              'bg-secondary text-gray-700':
+                selectedAnswers[currentQuestion.id] !== option.id
+            }"
+          >
+            {{ "ABCDEFGHIJKLMNOPQRSTUVWXYZ"[i] }}
+          </span>
+          <span class="ml-3 text-base font-medium flex-1">
+            {{ option.text }}
+          </span>
+          <input
+            type="radio"
+            [name]="'quiz_option_' + currentQuestion.id"
+            [value]="option.id"
+            [(ngModel)]="selectedAnswers[currentQuestion.id]"
+            class="w-6 h-6 accent-primary cursor-pointer"
+          />
+        </label>
+      </div>
+
+      <!-- Written -->
+      <div *ngIf="currentQuestion.type === 'written'" class="mb-8">
+        <textarea
+          hlmInput
+          class="w-full border-2 p-3"
+          rows="4"
+          placeholder="Write your answer here..."
+          [(ngModel)]="selectedAnswers[currentQuestion.id]"
+        ></textarea>
+      </div>
+    </div>
+
+    <div class="border-t border-gray-200 my-6"></div>
+
+    <!-- Footer Navigation -->
+    <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
+      <button
+        hlmBtn
+        variant="outline"
+        class="px-6 py-3"
+        (click)="previousQuestion()"
+        [disabled]="currentIndex === 0"
+      >
+        Previous
+      </button>
+      <div class="flex-grow hidden sm:block"></div>
+      <button
+        hlmBtn
+        variant="destructive"
+        (click)="submitQuiz()"
+        *ngIf="currentIndex == quiz.questions.length - 1"
+      >
+        Submit Quiz
+      </button>
+      <button
+        hlmBtn
+        class="px-6 py-3"
+        (click)="nextQuestion()"
+        [disabled]="currentIndex === quiz.questions.length - 1"
+      >
+        Next
+      </button>
+    </div>
+  </div>
+</div>

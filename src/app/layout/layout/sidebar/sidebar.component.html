@@ -1,0 +1,183 @@
+
+<aside
+  class="sticky h-screen bg-primary-foreground top-0 w-75 max-lg:w-18 border-border border-r flex flex-col max-sm:hidden"
+>
+  <!-- Header -->
+  <div
+    class="p-5 flex items-center space-x-2 max-lg:justify-center max-lg:space-x-0"
+  >
+    <div class="py-1.5 max-lg:px-3 px-2 rounded-lg gradient-primary">
+      <span class="material-icons text-popover">quiz</span>
+    </div>
+    <div class="max-lg:hidden">
+      <h1 class="text-xl font-bold text-foreground">QuizAdmin</h1>
+      <p class="text-sm text-muted-foreground">Dashboard</p>
+    </div>
+  </div>
+
+  <nav class="mt-6 flex-1 px-2 space-y-2 max-lg:space-y-4">
+    <!-- Main Section -->
+    <h2
+      class="text-sm text-muted-foreground pl-2 tracking-wider mb-3 max-lg:hidden"
+    >
+      Main
+    </h2>
+
+    <!-- Overview -->
+    <a
+      routerLink="home"
+      routerLinkActive="text-primary bg-primary-soft border-r-2 font-medium pointer-events-none"
+      class="relative group flex items-center max-lg:py-3 px-2 py-1.5 rounded-main font-light max-lg:justify-center hover:bg-surface-hover"
+    >
+      <span class="material-symbols-outlined">
+bar_chart
+</span>
+      <span class="ml-1 text-sm max-lg:hidden">Overview</span>
+      <!-- Tooltip -->
+      <span
+        class="hidden max-lg:block absolute left-full top-1/2 -translate-y-1/2 ml-3 w-max max-w-xs rounded-md bg-primary text-white text-xs px-3 py-1 shadow-primary opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-50 pointer-events-none"
+      >
+        Dashboard overview page
+        <span
+          class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1 w-2 h-2 bg-primary rotate-45"
+        ></span>
+      </span>
+    </a>
+
+    <!-- Users Section -->
+    <h2
+      class="mt-10 text-sm text-muted-foreground pl-2 tracking-wider mb-3 max-lg:hidden"
+    >
+      Users
+    </h2>
+
+    <!-- Students -->
+    <a
+      routerLink="student"
+      routerLinkActive="text-primary bg-primary-soft border-r-2 font-medium pointer-events-none"
+      class="relative group flex items-center max-lg:py-3 px-2 py-1.5 rounded-main  font-light max-lg:justify-center hover:bg-surface-hover"
+    >
+      <span class="material-icons">people_outline</span>
+      <span class="ml-3 max-lg:hidden">Students</span>
+      <span
+        class="hidden max-lg:block absolute left-full top-1/2 -translate-y-1/2 ml-3 w-max max-w-xs rounded-md bg-primary text-white text-xs px-3 py-1 shadow-primary opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-50 pointer-events-none"
+      >
+        Manage students
+        <span
+          class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1 w-2 h-2 bg-primary rotate-45"
+        ></span>
+      </span>
+    </a>
+
+    <!-- Teachers -->
+    <a
+      routerLink="teacher"
+      routerLinkActive="text-primary bg-primary-soft border-r-2 font-medium pointer-events-none"
+      class="relative group flex items-center max-lg:py-3 px-2 py-1.5 rounded-main  font-light max-lg:justify-center hover:bg-surface-hover"
+    >
+      <span class="material-icons">school</span>
+      <span class="ml-3 max-lg:hidden">Teachers</span>
+      <span
+        class="hidden max-lg:block absolute left-full top-1/2 -translate-y-1/2 ml-3 w-max max-w-xs rounded-md bg-primary text-white text-xs px-3 py-1 shadow-primary opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-50 pointer-events-none"
+      >
+        Manage teachers
+        <span
+          class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1 w-2 h-2 bg-primary rotate-45"
+        ></span>
+      </span>
+    </a>
+
+    <!-- Connections Section -->
+    <h2
+      class="mt-10 text-sm text-muted-foreground pl-2 tracking-wider mb-3 max-lg:hidden"
+    >
+      Connections
+    </h2>
+
+    <!-- Student Assignments -->
+    <a
+      routerLink="connections"
+      routerLinkActive="text-primary bg-primary-soft border-r-2 font-medium pointer-events-none"
+      class="relative group flex items-center max-lg:py-3 px-2 py-1.5 rounded-main font-light max-lg:justify-center hover:bg-surface-hover"
+    >
+      <span class="material-icons">assignment_ind</span>
+      <span class="ml-3 max-lg:hidden">Connections</span>
+      <span
+        class="hidden max-lg:block absolute left-full top-1/2 -translate-y-1/2 ml-3 w-max max-w-xs rounded-md bg-primary text-white text-xs px-3 py-1 shadow-primary opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-50 pointer-events-none"
+      >
+        Connections
+        <span
+          class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1 w-2 h-2 bg-primary rotate-45"
+        ></span>
+      </span>
+    </a>
+
+    <!-- Relationship Map -->
+    <a
+      routerLink="relashion-map"
+      routerLinkActive="text-primary bg-primary-soft border-r-2 font-medium pointer-events-none"
+      class="relative group flex items-center max-lg:py-3 px-2 py-1.5 rounded-main  font-light max-lg:justify-center hover:bg-surface-hover"
+    >
+    <span class="material-symbols-outlined">
+      graph_3
+      </span>
+      <span class="ml-3 max-lg:hidden">Relationship Map</span>
+      <span
+        class="hidden max-lg:block absolute left-full top-1/2 -translate-y-1/2 ml-3 w-max max-w-xs rounded-md bg-primary text-white text-xs px-3 py-1 shadow-primary opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-50 pointer-events-none"
+      >
+        Relationship map
+        <span
+          class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1 w-2 h-2 bg-primary rotate-45"
+        ></span>
+      </span>
+    </a>
+  </nav>
+</aside>
+
+<!-- Mobile -->
+<aside
+  class="fixed bottom-0 z-50 w-full bg-white flex items-center px-2 justify-between shadow-sidebar h-15 sm:hidden"
+>
+  <nav class="w-full flex justify-between items-center">
+    <a
+      routerLink="home"
+      routerLinkActive="text-primary"
+      class="relative group flex items-center flex-col rounded-main text-muted-foreground font-light sidebar-font-scale"
+    >
+      <span class="material-icons sidebar-font-scale">space_dashboard</span>
+      <span>Home</span>
+    </a>
+    <a
+      routerLink="student"
+      routerLinkActive="text-primary"
+      class="relative group flex items-center flex-col rounded-main text-muted-foreground font-light sidebar-font-scale"
+    >
+      <span class="material-icons sidebar-font-scale">people_outline</span>
+      <span>Students</span>
+    </a>
+    <a
+      routerLink="teacher"
+      routerLinkActive="text-primary"
+      class="relative group flex items-center flex-col rounded-main text-muted-foreground font-light sidebar-font-scale"
+    >
+      <span class="material-icons sidebar-font-scale">school</span>
+      <span>Teachers</span>
+    </a>
+    <a
+      routerLink="connections"
+      routerLinkActive="text-primary"
+      class="relative group flex items-center flex-col rounded-main text-muted-foreground font-light sidebar-font-scale"
+    >
+      <span class="material-icons sidebar-font-scale">assignment_ind</span>
+      <span>Connections</span>
+    </a>
+    <a
+      routerLink="relashion-map"
+      routerLinkActive="text-primary"
+      class="relative group flex items-center flex-col rounded-main text-muted-foreground font-light sidebar-font-scale"
+    >
+      <span class="material-icons sidebar-font-scale">map</span>
+      <span>Relations</span>
+    </a>
+  </nav>
+</aside>
